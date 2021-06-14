@@ -1,6 +1,7 @@
 import logo from './logo.svg';
 import './App.css';
 
+// do the react router 
 function App() {
   return (
     <div className="App">
