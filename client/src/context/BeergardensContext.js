@@ -14,10 +14,10 @@ export const BeergardensContext = createContext(initBeergardensContext);
 
 export const BeergardensContextProvider = ({ children }) => {
    const [beergarden, setBeergardens] = useState(
-      initCompaniesContext.companies);
+      initBeergardensContext.beergardens);
    return (
-      <CompaniesContext.Provider value={{ companies, setCompanies }}>
+      <BeergardensContext.Provider value={{ beergardens, setBeergardens }}>
          {children}
-      </CompaniesContext.Provider>
+      </BeergardensContext.Provider>
    )
 }
