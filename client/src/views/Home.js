@@ -21,8 +21,7 @@ function Home() {
         myBeergarden();
     }, []);
    return  />;
-// use map function - takes each opject in an array and returns it
-                    // if loading false show description if loading is true - loading
+
             })
         ) : (
             <h2>loading..</h2>
@@ -33,3 +32,5 @@ function Home() {
         }
 export default Home;
 
+// use map function - takes each opject in an array and returns it
+                    // if loading false show description if loading is true - loading
