@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const beerGardenModel = require("../models/beerGardenModels");
+const beerGardenModel = require("../models/beerGardenModel");
 
 router.get('/all', (req, res) => {
   beerGardenModel.find({}, function(err, beerGardens) {
