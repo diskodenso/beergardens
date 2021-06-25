@@ -2,6 +2,7 @@ import React, { useEffect, useState, useContext, createContext } from 'react'
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import Loading from "../components/Loading.js";
 import BeerGarden from "../components/BeerGarden.js";
+import Favorites from "../views/Favorites.js";
 
     function Home() {
         const [beerGardens, setBeerGardens] = useState([]);

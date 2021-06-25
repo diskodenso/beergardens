@@ -20,6 +20,7 @@ app.use(express.json());
 app.use(cors());
 
 app.use("/beergardens", require("./routes/beerGardens"));
+app.use("/users", require("./routes/users"));
 
 // last thing that happens 
 app.listen(port, () => {

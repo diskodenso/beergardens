@@ -64,7 +64,7 @@ function BeerGarden(props) {
           </IconButton>
         }
         title={beerGarden.name}
-        subheader=
+        subheader={beerGarden.location}
       />
       <CardMedia
         className={classes.media}
@@ -77,7 +77,7 @@ function BeerGarden(props) {
         </Typography>
       </CardContent>
       <CardActions disableSpacing>
-        <IconButton onClick=aria-label="add to favorites">
+        <IconButton aria-label="add to favorites">
           <FavoriteIcon />
         </IconButton>
         <IconButton aria-label="share">
@@ -99,10 +99,6 @@ function BeerGarden(props) {
           <Typography paragraph>Opening hours:</Typography>
           <Typography paragraph>
             {beerGarden.openingHours}
-                  </Typography>
-                  <Typography paragraph>Location:</Typography>
-          <Typography paragraph>
-            {beerGarden.location}
                   </Typography>
                             <Typography paragraph>Price range:</Typography>
           <Typography paragraph>
