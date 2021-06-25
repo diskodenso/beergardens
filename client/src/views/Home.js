@@ -1,16 +1,17 @@
 import React, { useEffect, useState, useContext, createContext } from 'react'
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import Loading from "../components/Loading.js";
+import BeerGarden from "../components/BeerGarden.js";
 
     function Home() {
-        const [beergarden, setBeergarden] = useState([]);
+        const [beerGardens, setBeerGardens] = useState([]);
         const [loading, setLoading] = useState(true);
- // const { beergardens } = useContext(BeergardensContext)
-    const myBeergarden = async () => {
+ // const { beerGardens } = useContext(BeerGardensContext)
+    const myBeerGarden = async () => {
         try {
             const response = await fetch(`http://localhost:5000/beergardens/all`);
         const data = await response.json();
-            setBeergarden(data);
+            setBeerGardens(data);
             setLoading(false);
         console.log(response);
         console.log(data);
@@ -20,15 +21,13 @@ import Loading from "../components/Loading.js";
     }
 
     useEffect(() => {
-        myBeergarden();
+        myBeerGarden();
     }, []);
         return (loading ? <Loading></Loading>:
-            beergarden.map((oneBeergarden, index) => {
+            beerGardens.map((oneBeerGarden, index) => {
                 return (
-                    <div key={oneBeergarden._id}>
-                    <img src={oneBeergarden.picture}></img>
-                        <p>{oneBeergarden.name }</p>
-                        </div>
+                    <BeerGarden key={index} beerGarden={oneBeerGarden} />
+    
                 )
             })
         )

@@ -19,7 +19,7 @@ app.use(urlencoded({ extended: true }));
 app.use(express.json());
 app.use(cors());
 
-app.use("/beergardens", require("./routes/beergardens"));
+app.use("/beergardens", require("./routes/beerGardens"));
 
 // last thing that happens 
 app.listen(port, () => {
