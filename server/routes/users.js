@@ -21,7 +21,7 @@ router.post("/register", (req, res) => {
         // Store hash in your password DB.
         console.log(hash);
         const newUser = new userModel({
-            username: reqUsername ? reqUsername : "";
+            username: reqUsername ? reqUsername : "",
             email: reqEmail,
             password: reqPassword,
         })
