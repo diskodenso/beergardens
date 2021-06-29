@@ -3,7 +3,10 @@ const cors = require('cors');
 const mongoose = require('mongoose');
 const express = require('express');
 const mongoURI = require("./config.js").mongoURI;
+const options = require("./config.js").options;
 const { urlencoded } = require('express');
+const passport = require(`passport`);
+const jwtStragedy = require("./passport");
 
 // Initialize express app
 const app = express();
@@ -18,6 +21,9 @@ mongoose
 app.use(urlencoded({ extended: true }));
 app.use(express.json());
 app.use(cors());
+// initilize passport (middleware)
+app.use(passport.initialize());
+passport.use("jwt", jwtStragedy);
 
 app.use("/beergardens", require("./routes/beerGardens"));
 app.use("/users", require("./routes/users"));
