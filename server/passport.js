@@ -21,7 +21,7 @@ const jwtVerify = async (payload, next) => {
     }
 };
 
-const jwtStragedy = new jwtStragedy(jwtOptions, jwtVerify);
+const jwtStrategy = new JwtStrategy(jwtOptions, jwtVerify);
 module.exports = {
-    jwtStragedy,
+    jwtStrategy,
 };
