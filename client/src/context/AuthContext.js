@@ -1,31 +1,34 @@
-import React, {createContext, useState} from 'react'
+import { set } from 'mongoose';
+import React, {createContext, useState, useEffect} from 'react'
+import AuthService from "../services/AuthService.js"
 
-// initialize the context
 
-const initAuthContext = {
-    user: null,
-    isLoggedIn: false,
-}
 
 // create context
 
-export const AuthContext = createContext(initAuthContext);
+export const AuthContext = createContext();
 
 // 4. make provider => value / children
 
-export const AuthContextProvider = ({ children }) => {
-    const [ user, setUser ] = useState(initAuthContext.user);
-    const [ isLoggedIn, setIsLoggedIn ] = useState(initAuthContext.isLoggedIn);
+export default ({ children }) => {
+    const [user, setUser] = useState(null);
+    const [isAuthenticated, setIsAuthenticated] = useState(false);
+    const [isLoaded, setIsLoaded] = useState(false);
+
+    // check if someone is logged in or not
+    useEffect(() => {
+        AuthService.isAuthenticated().then(data => {
+            setUser(data.user);
+            setIsAuthenticated(data.isAuthenticated);
+            setIsLoaded(true);
+        });
+    }, []);
     return (
-        <AuthContext.Provider
-            value={{
-                user,
-                setUser,
-                isLoggedIn,
-                setIsLoggedIn,
-            }}
-        >
-            {children}
-        </AuthContext.Provider>
-    );
-};
+        <div>
+            {!isLoaded ? <h1>Loading</h1> :
+                <AuthContext.Provider value={{user, setUser, isAuthenticated, setIsAuthenticated}}>
+                { children }
+</AuthContext.Provider>}
+        </div>
+    )
+}
