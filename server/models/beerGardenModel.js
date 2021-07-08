@@ -2,23 +2,34 @@ const mongoose = require('mongoose');
 
 const beerGardenSchema = new mongoose.Schema({
     picture: {
-type: String,
+        type: String,
         required: true,
     },
     name: {
         type: String,
+        required: true,
+
     },
     description: {
-        type: String,        
+        type: String,
+        required: true,
+
     },
     price_range: {
         type: String,
+        required: true,
+
     },
     opening_hours: {
         type: String,
+        required: true,
+
     },
     location: {
         type: String,
+        required: true,
+        unique: true,
+
     },
     notes: {
         type: String,
