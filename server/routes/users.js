@@ -149,8 +149,10 @@ userRouter.get("/logout", passport.authenticate(`jwt`, {session: false,}), (req,
     res.clearCookie(`access token`);
     res.json({ user: { username: "", email: "" }, success: true });
 });
+
+// creating a 
 userRouter.get('/authenticated',passport.authenticate('jwt',{session : false}),(req,res)=>{
-    const {username,role} = req.user;
+    const {username,email} = req.user;
     res.status(200).json({isAuthenticated : true, user : {username,email}});
 });
 module.exports = userRouter;

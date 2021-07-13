@@ -39,7 +39,12 @@ const app = express();
 const mongoose = require('mongoose');
 const cookieParser = require('cookie-parser');
 const userModel = require("./models/userModel");
+const cors = require('cors');
+const port = process.env.PORT || 5000;
+
 app.use(cookieParser());
+app.use(express.json());
+app.use(urlencoded({ extended: true }));
 app.use(express.json());
 
 mongoose

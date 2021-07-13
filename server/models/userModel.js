@@ -18,7 +18,7 @@ const userSchema = new mongoose.Schema({
         type: String,
         required: true,
     },
-    beerGardens:[{type: moongose.Schema.Types.ObjectID, ref:"beerGarden"}]
+    beerGardens:[{type: moongose.Schema.Types.ObjectID, ref:'beerGarden'}]
 });
 
 userSchema.pre("save", function (next) {
