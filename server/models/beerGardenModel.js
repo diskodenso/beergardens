@@ -3,7 +3,6 @@ const mongoose = require('mongoose');
 const beerGardenSchema = new mongoose.Schema({
     picture: {
         type: String,
-        required: true,
     },
     name: {
         type: String,
@@ -29,6 +28,7 @@ const beerGardenSchema = new mongoose.Schema({
         type: String,
         required: true,
         unique: true,
+        required: true,
 
     },
     notes: {

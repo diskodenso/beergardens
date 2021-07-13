@@ -4,8 +4,8 @@ import Message from "../components/Message.js";
 import { AuthContext } from "../context/AuthContext.js";
 
 
-const SignIn = () => {
-  const [user, setUser] = useState({ userName: "", password: "" });
+const SignIn = props => {
+  const [user, setUser] = useState({ username: "", password: "" });
   const [message, setMessage] = useState(null);
   const authContext = useContext(AuthContext);
 

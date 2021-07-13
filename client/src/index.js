@@ -5,10 +5,7 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { AuthContext } from "./context/AuthContext.js";
 
-ReactDOM.render(
-    <AuthContext.Provider><App /></AuthContext.Provider>,
-  document.getElementById('root')
-);
+ReactDOM.render(<AuthContext.Provider><App /></AuthContext.Provider>,document.getElementById('root'));
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))
